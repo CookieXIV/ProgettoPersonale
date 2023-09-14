@@ -41,6 +41,20 @@ public class OrderService {
         }else throw new Exception("Order with Client Name :  " + clientName + " " +clientSurname+ " does not exist");
     }
 
+    public Order getOrderByClientNumber(String clientNumber) throws Exception {
+        Optional<Order> optionalOrder = orderRepo.findOrderByClientNumber(clientNumber);
+        if (optionalOrder.isPresent()){
+            return optionalOrder.get();
+        }else throw new Exception("Order with Client cell number :  " +clientNumber+ " does not exist");
+    }
+
+    public Order getOrderByClientEmail(String clientEmail) throws Exception {
+        Optional<Order> optionalOrder = orderRepo.findOrderByClientEmail(clientEmail);
+        if (optionalOrder.isPresent()){
+            return optionalOrder.get();
+        }else throw new Exception("Order with Client Email :  " + clientEmail+ " does not exist");
+    }
+
     public Order saveOrder(OrderDTO orderDTO) throws Exception {
         try {
             Order order = new Order(

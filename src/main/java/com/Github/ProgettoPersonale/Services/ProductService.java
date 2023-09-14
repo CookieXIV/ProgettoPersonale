@@ -44,7 +44,7 @@ public class ProductService {
         }
     }
 
-    public String deleteBook(long id){
+    public String deleteProd(long id){
         try { productRepo.deleteById(id);
             return "The product with id: " + id + " has been deleted correctly";
         } catch (Exception e) {
